@@ -47,15 +47,12 @@ Provides:	librsvg = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-An library to render SVG (scalable vector graphics), databased upon libart.
-No Gnome dependencies.
+An library to render SVG (scalable vector graphics), databased upon
+libart; built without GNOME dependencies.
 
 %description -l pl.UTF-8
 Biblioteka do renderowania SVG (skalowalnej grafiki wektorowej) oparta
-na kodzie libart. Bez zaleznosci Gnome.
-
-%description -l pt_BR.UTF-8
-Biblioteca de Extensão da Eazel.
+na kodzie libart. Zbudowana bez zależności od GNOME.
 
 %description -l ru.UTF-8
 Библиотека SVG, базирующаяся на libart.
