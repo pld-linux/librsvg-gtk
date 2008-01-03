@@ -3,7 +3,8 @@
 %bcond_without	apidocs		# disable gtk-doc
 %bcond_without	libgsf		# build without libgsf (used for run-time decompression)
 %bcond_without	libcroco	# build without CSS support through libcroco
-%define	_realname	librsvg
+#
+%define	realname	librsvg
 
 Summary:	A Raph's Library for Rendering SVG Data
 Summary(pl.UTF-8):	Biblioteka Raph's SVG do renderowania danych SVG
@@ -16,7 +17,7 @@ Release:	2
 Epoch:		1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/librsvg/2.18/%{_realname}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/librsvg/2.18/%{realname}-%{version}.tar.bz2
 # Source0-md5:	4691ad687281e943260021272c28043e
 URL:		http://librsvg.sourceforge.net/
 BuildRequires:	autoconf
@@ -43,7 +44,7 @@ Obsoletes:	browser-plugin-librsvg
 Obsoletes:	mozilla-plugin-rsvg
 Obsoletes:	librsvg0
 Provides:	librsvg = %{version}-%{release}
-BuildRoot:	%{tmpdir}/%{_realname}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 An library to render SVG (scalable vector graphics), databased upon libart.
@@ -130,7 +131,7 @@ librsvg API documentation.
 Dokumentacja API biblioteki librsvg.
 
 %prep
-%setup -q -n %{_realname}-%{version}
+%setup -q -n %{realname}-%{version}
 
 %build
 %{__libtoolize}
@@ -144,7 +145,7 @@ Dokumentacja API biblioteki librsvg.
 	%{?with_apidocs:--enable-gtk-doc} \
 	%{!?with_libcroco:--without-croco} \
 	%{!?with_libgsf:--without-svgz} \
-	--with-html-dir=%{_gtkdocdir}/%{_realname}
+	--with-html-dir=%{_gtkdocdir}/%{realname}
 %{__make}
 
 %install
@@ -193,5 +194,5 @@ gdk-pixbuf-query-loaders > %{_sysconfdir}/gtk-2.0/gdk-pixbuf.loaders
 %if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
-%{_gtkdocdir}/%{_realname}
+%{_gtkdocdir}/%{realname}
 %endif
